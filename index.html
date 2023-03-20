@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+      <div>
+    <h1 class="strength">Password Strength Checker
+    </h1>
+
+    <form action="#">
+        <label for="password">Password:
+        </label>
+        <input type="password" id="password" name="password"><br>
+        <button type="submit" id="check">Check</button>
+        <p id="display"></p>
+    </form>
+  </div>
+</div>
+
+    <script>
+  let checkBtn = document.getElementById("check");
+  let inputPassword = document.getElementById("password");
+  let message = document.getElementById("display");
+  //
+  checkBtn.addEventListener("click", passwordFunc);
+  function passwordFunc(){
+    let strongPassWord = /\w{8,}[A-Z]*[a-z]*\d+\W+/g;
+    let mediumPassword = /(\w{8,})+([A-Z]*)+([a-z]*)|(\w{8,})+(\d+)+(\W+)/g;
+    let weakPassword = /[A-Z]*[a-z]*|\w{8,}|\d+\W+/g;
+    let inputValue = inputPassword.value;
+    if (strongPassWord.test(inputValue)){
+           let matching = inputValue.match(strongPassWord);
+           let matchString = matching.toString();
+           message.innerHTML = "password is strong";
+    }
+  
+  else if(mediumPassword.test(inputValue)){
+    let matching = inputValue.match(mediumPassword);
+    let matchString = matching.toString();
+    message.innerHTML = "password is medium";
+  }
+  else{
+    message.innerHTML = "password is weak";
+  }
+  }
+    </script>
+</body>
+</html>

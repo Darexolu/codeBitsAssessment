@@ -1,0 +1,32 @@
+input{
+    outline: none;
+}
+body{
+    box-sizing: border-box;
+    display: flex;
+   justify-content: center;
+   font-family: sans-serif;
+}
+.container{
+    width: 960px;
+   display: flex;
+   justify-content: center;
+}
+input{
+    background-color: grey;
+    height: 20px;
+}
+button{
+    background-color: red;
+    border: none;
+    margin-top: 5px;
+    margin-left: 130px;
+    border-radius: 2px;
+}
+#display{
+    margin-left: 80px;
+
+}
+.strength{
+    margin-left: -30px;
+}
